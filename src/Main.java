@@ -4,14 +4,26 @@ public class Main {
     public static void main(String[] args) {
 
         int pay = 0;
-        int[] arr = generateRandomArray();
 
+        int[] arr = generateRandomArray();
+        int min = arr[0];
+        int max = arr[0];
         for (int i = 0; i <= arr.length - 1; i++) {
             System.out.println(i + " " + arr[i]);
             pay += arr[i];
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+            else if (max < arr[i]) {
+                max = arr[i];
+            }
         }
 
         System.out.println("Сумма всех выплат за месяц: " + pay);
+        System.out.println("Минимальная сумма трат за день составила " + min +  " рублей. Максимальная сумма трат " +
+                "за день составила " + max + " рублей");
+
+
     }
 
     public static int[] generateRandomArray() {
